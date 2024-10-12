@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
   res.send("Hello world");
 });
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://ig-m7pu.onrender.com");
+  res.setHeader("Access-Control-Allow-Origin", "https://img-57f2.onrender.com");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
